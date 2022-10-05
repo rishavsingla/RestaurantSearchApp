@@ -2,10 +2,8 @@ package com.example.restaurantsearchapp.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.restaurantsearchapp.R
 import com.example.restaurantsearchapp.databinding.ItemViewSearchedResultBinding
 import com.example.restaurantsearchapp.models.RestaurantsItem
@@ -51,12 +49,8 @@ class SearchedResultAdapter : RecyclerView.Adapter<SearchedResultAdapter.MyViewH
 
         fun bind(item: RestaurantsItem) {
             binding.type.text = "Restaurant"
-            loadImage(R.drawable.ic_restaurant, binding.imageView)
+            binding.imageView.setImageResource(R.drawable.ic_restaurant)
             binding.name.text = item.name
-        }
-
-        private fun loadImage(resourceId: Int, imageView: ImageView) {
-            Glide.with(itemView.context).load(resourceId).circleCrop().into(imageView)
         }
 
     }
